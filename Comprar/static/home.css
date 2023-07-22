@@ -1,0 +1,45 @@
+.home-cont{
+	display: flex;
+	justify-content:space-evenly;
+	margin-top : 30px;
+}
+
+.home-plan{
+	margin: 10px;
+	width: 20%;
+	height: 10%;
+	border: 1px solid gray;
+	border-radius: 10px;
+	padding : 20px;
+	text-align: center;
+	box-shadow: 5px 5px 10px gray;
+	background-color: #EDE4FF;
+}
+
+.home-plan hr{
+	color: black;
+	margin:25px;
+}
+
+.home-plan h1,h2{
+	color: #A076F9;
+	margin: 0;
+	padding: 0;
+}
+
+.home-plan button{
+	background-color: #6528F7;
+	color: white;
+	border: 1px solid #6528F7;
+	border-radius: 5px;
+	padding: 10px 30px;
+	margin: 0;
+	font-weight: 1000;
+	font-family:sans-serif ;
+	transition: 0.5s;
+}
+
+.home-plan button:hover{
+	box-shadow: 5px 5px 5px gray;
+	background-color: #40128B;
+}

@@ -1,0 +1,25 @@
+body {
+	margin: 0;
+	font-family: fantasy;
+	text-decoration: none;
+}
+.header{
+	display: flex;
+	background-color : #6528F7;
+	border-bottom: 1px solid gray;
+	box-shadow: 3px 5px 10px gray;
+	padding: 0 20px ;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header h1{
+	color: #EDE4FF;
+	font-size: 45px;
+}
+
+.header a{
+	color : #EDE4FF;
+	text-decoration: none;
+	font-size: 35px;
+}

@@ -1,0 +1,69 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home</title>
+</head>
+<body>
+	{% block cont %}
+	<div class = 'home-cont'>
+		<div class='home-plan'>
+			<h1>BASIC</h1>
+			<hr>
+			<ul>
+				<li>Conexion normal</li>
+				<li>10 paises</li>
+				<li>maximo 1 dispositivo</li>
+			</ul>
+			<hr>
+			<h2>$20.000</h2>
+			<hr>
+			<form>
+				{% csrf_token %}
+				<button>COMPRAR</button>
+			</form>
+		</div>
+
+		<div class='home-plan'>
+			<h1>NORMAL</h1>
+			<hr>
+			<ul>
+				<li>Conexion Rapida</li>
+				<li>20 paises</li>
+				<li>maximo 3 dispositivo</li>
+				<li>Antivirus incluido</li>
+			</ul>
+			<hr>
+			<h2>$40.000</h2>
+			<hr>
+			<form>
+				{% csrf_token %}
+				<button>COMPRAR</button>
+			</form>
+		</div>
+
+		<div class='home-plan'>
+			<h1>PREMIUN</h1>
+			<hr>
+			<ul>
+				<li>Conexion Ultra Rapida</li>
+				<li>Todos los paises</li>
+				<li>maximo 5 dispositivo</li>
+				<li>Antivirus incluido</li>
+				<li>Conexion entre Dispositivos</li>
+				<li>Modo Desarrollador</li>
+			</ul>
+			<hr>
+			<h2>$60.000</h2>
+			<hr>
+			<form>
+				{% csrf_token %}
+				<button>COMPRAR</button>
+			</form>
+		</div>
+	</div>
+	{% endblock %}
+</body>
+</html>
