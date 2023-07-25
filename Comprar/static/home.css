@@ -27,19 +27,20 @@
 	padding: 0;
 }
 
-.home-plan button{
+.link{
 	background-color: #6528F7;
 	color: white;
 	border: 1px solid #6528F7;
 	border-radius: 5px;
-	padding: 10px 30px;
+	padding: 10px 20px;
 	margin: 0;
-	font-weight: 1000;
-	font-family:sans-serif ;
 	transition: 0.5s;
+	text-decoration: none;
+	font-family: fantasy;
+	letter-spacing: 1px;
 }
 
-.home-plan button:hover{
+.link:hover{
 	box-shadow: 5px 5px 5px gray;
 	background-color: #40128B;
 }

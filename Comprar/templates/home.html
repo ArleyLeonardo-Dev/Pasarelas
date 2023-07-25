@@ -20,10 +20,7 @@
 			<hr>
 			<h2>$20.000</h2>
 			<hr>
-			<form>
-				{% csrf_token %}
-				<button>COMPRAR</button>
-			</form>
+			<a href="{% url 'token_basic' %}" class="link">COMPRAR</a>
 		</div>
 
 		<div class='home-plan'>
@@ -38,9 +35,9 @@
 			<hr>
 			<h2>$40.000</h2>
 			<hr>
-			<form>
+			<form method="POST">
 				{% csrf_token %}
-				<button>COMPRAR</button>
+				<a href="{% url 'token_normal' %}" class="link">COMPRAR</a>
 			</form>
 		</div>
 
@@ -58,9 +55,9 @@
 			<hr>
 			<h2>$60.000</h2>
 			<hr>
-			<form>
+			<form method="POST">
 				{% csrf_token %}
-				<button>COMPRAR</button>
+				<a href="{% url 'token_premiun' %}" class="link">COMPRAR</a>
 			</form>
 		</div>
 	</div>
