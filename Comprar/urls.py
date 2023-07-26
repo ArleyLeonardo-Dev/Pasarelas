@@ -10,7 +10,7 @@ urlpatterns = [
 	path('token_premiun/', token_premiun, name = 'token_premiun'),
 
 	#Paginas de formulario de pagos
-	path('token_basic/CompraBasic/', CompraBasic, name = 'CompraBasic'),
-	path('token_normal/CompraNormal/', CompraNormal, name = 'CompraNormal'),
-	path('token_premiun/CompraPremiun/', CompraPremiun, name = 'CompraPremiun')
+	path('token_basic/CompraBasic/<str:token>', CompraBasic, name = 'CompraBasic'),
+	path('token_normal/CompraNormal/<str:token>', CompraNormal, name = 'CompraNormal'),
+	path('token_premiun/CompraPremiun/<str:token>', CompraPremiun, name = 'CompraPremiun')
 ]
