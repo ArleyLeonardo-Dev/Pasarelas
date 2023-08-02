@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 import requests
 import json
+from .forms import *
 
 # Create your views here.
 
@@ -36,18 +37,18 @@ def token_normal(request):
 
 def token_premiun(request):
 	token = getToken()
-	
+
 	return redirect(f'CompraPremiun/{token}')
 
 
 #Pagina de compras
 def CompraBasic(request, token):
-	return render(request, 'CompraBasic.html')
+	return render(request, 'CompraBasic.html', {"Formulario":FormDatosUser()})
 
 
 def CompraNormal(request, token):
-	return render(request, 'CompraNormal.html')
+	return render(request, 'CompraNormal.html', {"Formulario":FormDatosUser()})
 
 
 def CompraPremiun(request, token):
-	return render(request, 'CompraPremiun.html')
+	return render(request, 'CompraPremiun.html', {"Formulario":FormDatosUser()})

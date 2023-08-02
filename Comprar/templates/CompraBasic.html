@@ -8,7 +8,11 @@
 </head>
 <body>
 	{% block cont %}
-	<h1>Compra Basic</h1>
+	<form>
+		{% csrf_token %}
+		{{Formulario}}
+		<button>Enviar</button>
+	</form>
 	{% endblock %}
 </body>
 </html>
