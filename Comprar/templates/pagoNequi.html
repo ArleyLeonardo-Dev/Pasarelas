@@ -4,14 +4,14 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Basic</title>
+	<title></title>
 </head>
 <body>
 	{% block cont %}
 	<form method="POST">
 		{% csrf_token %}
-		{{Formulario}}
-		<button>Pagar</button>
+		{{formulario}}
+		<button>Enviar</button>
 	</form>
 	{% endblock %}
 </body>

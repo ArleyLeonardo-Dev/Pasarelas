@@ -9,9 +9,11 @@ class Pago(models.Model):
 	metodo = models.CharField(max_length = 50)
 
 class DatosNequi(models.Model):
+	usuario = models.ForeignKey("Pago", on_delete = models.CASCADE, default = 0)
 	numero = models.CharField(max_length = 20)	
 
 class DatosTarjeta(models.Model):
+	usuario = models.ForeignKey("Pago", on_delete = models.CASCADE, default = 0)
 	numero = models.CharField(max_length = 100)
 	cvc = models.CharField(max_length = 100)
 	exp_mes = models.CharField(max_length = 3)

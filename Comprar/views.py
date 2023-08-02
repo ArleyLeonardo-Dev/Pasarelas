@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 import requests
 import json
 from .forms import *
+from .models import *
 
 # Create your views here.
 
@@ -17,6 +18,9 @@ def getToken():
 
 	return token
 
+def GuardarBaseDatosUser(nombre,email,token,plan,metodo):
+	user = Pago(nombreApellidos = nombre, email = email, token = token, plan = plan, metodo = metodo)
+	user.save()
 
 #Pagina principal
 def home(request):
@@ -43,12 +47,56 @@ def token_premiun(request):
 
 #Pagina de compras
 def CompraBasic(request, token):
-	return render(request, 'CompraBasic.html', {"Formulario":FormDatosUser()})
+	if request.method == "GET":
+		return render(request, 'CompraBasic.html', {"Formulario":FormDatosUser()})
+	else:
+		nombre = request.POST["usuario"]
+		email = request.POST["correo"]
+		token = token
+		plan = "Basico"
+		metodo = request.POST["metodo"]
+		monto = "2000000"
+
+		GuardarBaseDatosUser(nombre,email,token,plan,metodo)
+
+		if metodo == "Nequi":
+			return redirect(f'pagoNequiBasic/{nombre}/{email}/{token}/{plan}/{metodo}/{monto}')
 
 
 def CompraNormal(request, token):
-	return render(request, 'CompraNormal.html', {"Formulario":FormDatosUser()})
+	if request.method == "GET":
+		return render(request, 'CompraNormal.html', {"Formulario":FormDatosUser()})
+	else:
+		nombre = request.POST["usuario"]
+		email = request.POST["correo"]
+		token = token
+		plan = "Normal"
+		metodo = request.POST["metodo"]
+		monto = "4000000"
 
+		GuardarBaseDatosUser(nombre,email,token,plan,metodo)
+
+		if metodo == "Nequi":
+			return redirect(f'pagoNequiNormal/{nombre}/{email}/{token}/{plan}/{metodo}/{monto}')
 
 def CompraPremiun(request, token):
-	return render(request, 'CompraPremiun.html', {"Formulario":FormDatosUser()})
+	if request.method == "GET":
+		return render(request, 'CompraPremiun.html', {"Formulario":FormDatosUser()})
+	else:
+		nombre = request.POST["usuario"]
+		email = request.POST["correo"]
+		token = token
+		plan = "Premiun"
+		metodo = request.POST["metodo"]
+		monto = "6000000"
+
+		GuardarBaseDatosUser(nombre,email,token,plan,metodo)
+
+		if metodo == "Nequi":
+			return redirect(f'pagoNequiPremiun/{nombre}/{email}/{token}/{plan}/{metodo}/{monto}')
+
+#Paginas de pago
+
+def pagoNequi(request, nombre, email,token,plan,metodo,monto):
+	if request.method == "GET":
+		return render(request, 'pagoNequi.html', {"formulario":FormPagoNequi()})
