@@ -8,11 +8,14 @@
 </head>
 <body>
 	{% block cont %}
-	<form method="POST">
+	<div class = "Formulario">
+		<form method="POST" >
 		{% csrf_token %}
 		{{Formulario}}
-		<button>Enviar</button>
-	</form>
+		<input type="checkbox" name="Terminos" required="">Acepta <a href={{Terminos}}>Terminos y condiciones</a>
+		<button>Pagar</button>
+		</form>
+	</div>
 	{% endblock %}
 </body>
 </html>

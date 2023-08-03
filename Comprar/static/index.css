@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	font-family: fantasy;
 	text-decoration: none;
+	background-color: #EDE4FF;
 }
 .header{
 	display: flex;

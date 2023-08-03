@@ -8,14 +8,8 @@
 </head>
 <body>
 	{% block cont %}
-	<div id = "PagoNequi">
-		<form method="POST" id = "form">
-		{% csrf_token %}
-		{{formulario}}
-		<button>Enviar</button>
-		</form>
-	</div>
-	
+	<h1>Su compra se a concretado con exito</h1>
+	<h2>Usted acaba de comprar el plan {{Plan}}</h2>
 	{% endblock %}
 </body>
 </html>

@@ -1,0 +1,54 @@
+.Formulario{
+	display: flex;
+	justify-content: center;
+}
+
+.Formulario form{
+	margin-top: 5%;
+	display: flex;
+	flex-direction: column;
+	background-color: #EDE4FF;
+	border: 1px solid grey;
+	padding: 2%;
+	border-radius: 10px;
+	width: 33%;
+	box-shadow: 10px 10px 10px gray;
+}
+
+.Formulario label{
+	color: #6528F7;
+	font-size: 20px;
+	margin: 2% 0;
+}
+
+.Formulario input{
+	font-family: fantasy;
+	border: 1px solid grey;
+	border-radius: 5px;
+	padding: 2%;
+	flex-direction: row;
+}
+
+.Formulario select{
+	font-family: fantasy;
+	border: 1px solid grey;
+	border-radius: 5px;
+	padding: 2%;
+}
+
+.Formulario button{
+	background-color:#6528F7;
+	border:1px solid gray;
+	border-radius: 5px;
+	width: auto;
+	padding: 2% 0;
+	color: white;
+	font-family: fantasy;
+	font-size: 20px;
+	transition: 0.5s;
+}
+
+.Formulario button:hover{
+	background-color: #40128B;
+	box-shadow: 5px 5px 5px gray;
+}

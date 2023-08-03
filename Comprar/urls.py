@@ -4,9 +4,9 @@ from .views import *
 CortLinkBasic = "token_basic/CompraBasic/"
 CortLinkNormal = "token_normal/CompraNormal/"
 CortLinkPremiun = "token_premiun/CompraPremiun/"
-CortLinkNequiBasic = "pagoNequiBasic/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<str:monto>"
-CortLinkNequiNormal = "pagoNequiNormal/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<str:monto>"
-CortLinkNequiPremiun = "pagoNequiPremiun/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<str:monto>"
+CortLinkNequiBasic = "pagoNequiBasic/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<str:monto>/<int:referencia>/"
+CortLinkNequiNormal = "pagoNequiNormal/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<str:monto>/<int:referencia>/"
+CortLinkNequiPremiun = "pagoNequiPremiun/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<str:monto>/<int:referencia>/"
 
 urlpatterns = [
 	path('', home, name = 'home'),
