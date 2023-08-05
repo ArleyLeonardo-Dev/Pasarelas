@@ -4,10 +4,14 @@ from .views import *
 CortLinkBasic = "token_basic/CompraBasic/"
 CortLinkNormal = "token_normal/CompraNormal/"
 CortLinkPremiun = "token_premiun/CompraPremiun/"
-CortLinkNequiBasic = "pagoNequiBasic/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<str:monto>/<int:referencia>/"
-CortLinkNequiNormal = "pagoNequiNormal/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<str:monto>/<int:referencia>/"
-CortLinkNequiPremiun = "pagoNequiPremiun/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<str:monto>/<int:referencia>/"
 
+CortLinkNequiBasic = "pagoNequiBasic/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<int:monto>/<str:referencia>/"
+CortLinkNequiNormal = "pagoNequiNormal/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<int:monto>/<str:referencia>/"
+CortLinkNequiPremiun = "pagoNequiPremiun/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<int:monto>/<str:referencia>/"
+
+CortLinkTarjetaBasic = "pagoTarjetaBasic/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<int:monto>/<str:referencia>/"
+CortLinkTarjetaNormal = "pagoTarjetaNormal/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<int:monto>/<str:referencia>/"
+CortLinkTarjetaPremiun = "pagoTarjetaPremiun/<str:nombre>/<str:email>/<str:token>/<str:plan>/<str:metodo>/<int:monto>/<str:referencia>/"
 urlpatterns = [
 	path('', home, name = 'home'),
 	
@@ -21,8 +25,13 @@ urlpatterns = [
 	path('token_normal/CompraNormal/<str:token>', CompraNormal, name = 'CompraNormal'),
 	path('token_premiun/CompraPremiun/<str:token>', CompraPremiun, name = 'CompraPremiun'),
 
-	#Paginas de metodo de pago
+	#Paginas de metodo de pago Nequi
 	path(f'{CortLinkBasic}{CortLinkNequiBasic}', pagoNequi, name = "PagoNequiBasic"),
 	path(f'{CortLinkNormal}{CortLinkNequiNormal}', pagoNequi, name = "PagoNequiNormal"),
-	path(f'{CortLinkPremiun}{CortLinkNequiPremiun}', pagoNequi, name = "pagoNequiPremiun")
+	path(f'{CortLinkPremiun}{CortLinkNequiPremiun}', pagoNequi, name = "pagoNequiPremiun"),
+
+	#Paginas de metodo de pago Tarjeta
+	path(f'{CortLinkBasic}{CortLinkTarjetaBasic}', pagoTarjeta, name = "PagoTarjetaBasic"),
+	path(f'{CortLinkNormal}{CortLinkTarjetaNormal}', pagoTarjeta, name = "PagoTarjetaNormal"),
+	path(f'{CortLinkPremiun}{CortLinkTarjetaPremiun}', pagoTarjeta, name = "pagoTarjetaPremiun"),
 ]

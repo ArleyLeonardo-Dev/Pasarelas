@@ -9,13 +9,13 @@
 <body>
 	{% block cont %}
 	<div class = "Pagos">
-		<form method="POST" class = "form">
-		{% csrf_token %}
-		{{formulario}}
-		<button>Enviar</button>
+		<form method="POST" class="form">
+			{% csrf_token %}
+			{{formulario}}
+			<button>Enviar</button>
 		</form>
+		
 	</div>
-	
 	{% endblock %}
 </body>
 </html>

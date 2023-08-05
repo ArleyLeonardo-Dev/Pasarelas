@@ -17,9 +17,4 @@ class DatosNequi(models.Model):
 
 class DatosTarjeta(models.Model):
 	usuario = models.ForeignKey("Pago", on_delete = models.CASCADE, default = 0)
-	numero = models.CharField(max_length = 100)
-	cvc = models.CharField(max_length = 100)
-	exp_mes = models.CharField(max_length = 3)
-	exp_year = models.CharField(max_length = 3)
-	nombre = models.CharField(max_length = 100)
-
+	IdTransaccion = models.CharField(max_length = 1000, default = " ")

@@ -1,10 +1,10 @@
-#PagoNequi{
+.Pagos{
 	justify-content: space-around;
 	display: flex;
 	margin-top: 5%;
 }
 
-#form{
+.form{
 	background-color: #EDE4FF;
 	align-items: center;
 	width: 33%;
@@ -16,7 +16,7 @@
 	box-shadow: 5px 5px 5px gray;
 }
 
-#form input{
+.form input{
 	width: 60%;
 	text-align: center;
 	margin: 2% 0;
@@ -25,12 +25,12 @@
 	border-radius: 5px;
 }
 
-#form label{
+.form label{
 	font-size: 20px;
 	color: #6528F7;
 }
 
-#form button{
+.form button{
 	background-color:#6528F7;
 	border:1px solid gray;
 	border-radius: 5px;
@@ -42,7 +42,7 @@
 	transition: 0.5s;
 }
 
-#form button:hover{
+.form button:hover{
 	background-color: #40128B;
 	box-shadow: 5px 5px 5px gray;
 }
