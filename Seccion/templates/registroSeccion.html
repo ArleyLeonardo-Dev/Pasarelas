@@ -1,0 +1,26 @@
+{% extends 'IS_index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block cont %}
+    <div class="inicioSeccionFormulario">
+        <form method="POST" class="inicioSeccionForm">
+            {% csrf_token %}
+            {{formulario}}
+            <button>Send</button>
+            <a href="{% url 'inicioSeccion' %}">I have account</a>
+            {% if validacion == 1 %}
+            <p>Las contraseñas no son iguales</p>
+            {% elif validacion == 2 %}
+            <p>Este Usuario ya existe</p>
+            {% endif %}
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

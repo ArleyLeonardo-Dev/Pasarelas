@@ -92,19 +92,31 @@ def home(request):
 def token_basic(request):
 	token = getToken()
 
-	return redirect(f'CompraBasic/{token}')
+	try:
+		response = request.COOKIES['sessionid']
+		return redirect(f'CompraBasic/{token}')
+	except:
+		return redirect('inicioSeccion')
 
 
 def token_normal(request):
 	token = getToken()
 
-	return redirect(f'CompraNormal/{token}')
+	try:
+		response = request.COOKIES['sessionid']
+		return redirect(f'CompraNormal/{token}')
+	except:
+		return redirect('inicioSeccion')
 
 
 def token_premiun(request):
 	token = getToken()
-
-	return redirect(f'CompraPremiun/{token}')
+	try:
+		response = request.COOKIES['sessionid']
+		return redirect(f'CompraPremiun/{token}')
+	except:
+		return redirect('inicioSeccion')
+		
 
 
 

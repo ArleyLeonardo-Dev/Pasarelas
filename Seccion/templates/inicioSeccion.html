@@ -1,0 +1,26 @@
+{% extends 'IS_index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block cont %}
+    <div class="inicioSeccionFormulario">
+        <form method="POST" class="inicioSeccionForm">
+            {% csrf_token %}
+            {{formulario}}
+            <button>Send</button>
+            <a href="{% url 'registroSeccion' %}">Create Account</a>
+            {% if validacion == 1 %}
+            <p>Este Usuario No Exite</p>
+            {% elif validacion == 2 %}
+            <p>La Contraseña Es Incorrecta</p>
+            {% endif %}
+        </form>
+    </div>
+    {% endblock %}        
+</body>
+</html>

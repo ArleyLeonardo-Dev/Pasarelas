@@ -1,0 +1,55 @@
+.inicioSeccionFormulario{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.inicioSeccionForm{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 3%;
+    width: 25%;
+    box-shadow: 5px 5px 5px gray;
+}
+
+.inicioSeccionForm label{
+    color: #6528F7;
+    font-size: 20px;
+}
+
+.inicioSeccionForm span{
+    display: none;
+}
+
+.inicioSeccionForm input{
+    padding: 3%;
+    border-radius: 5px;
+    border:1px solid black;
+}
+
+.inicioSeccionForm button{
+    margin-top: 5%;
+    margin-bottom: 3%;
+    background-color:#6528F7;
+	border:1px solid gray;
+	border-radius: 5px;
+	width: auto;
+	padding: 2% 0;
+	color: white;
+	font-family: fantasy;
+	font-size: 20px;
+	transition: 0.5s;
+}
+
+.inicioSeccionForm button:hover{
+    background-color: #40128B;
+	box-shadow: 5px 5px 5px gray;
+}
+
+.inicioSeccionForm a{
+    color: #6528F7;
+    font-family: fantasy;
+}
