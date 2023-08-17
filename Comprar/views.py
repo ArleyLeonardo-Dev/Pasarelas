@@ -85,7 +85,7 @@ def crearFuentePago(lista):
 
 #Pagina principal
 def home(request):
-	return render(request, 'home.html')
+    return render(request, 'home.html')
 
 
 #Tokens

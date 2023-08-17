@@ -27,7 +27,7 @@ def inicioSeccion(request):
             validacion = 2
             return render(request, 'inicioSeccion.html', {'formulario': AuthenticationForm(), 'validacion':validacion})
         else:
-            login(request, GetUser)
+            request.datos= username
             return redirect('home')
         
     

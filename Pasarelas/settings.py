@@ -38,10 +38,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Comprar.apps.ComprarConfig',
-    'Seccion.apps.SeccionConfig'
+    'Seccion.apps.SeccionConfig',
+    'JwtTokenApi.apps.JwttokenapiConfig',
+    'rest_framework',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
 MIDDLEWARE = [
+    'Seccion.middleware.custom_middleware.DataTransferMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
