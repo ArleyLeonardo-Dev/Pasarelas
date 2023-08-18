@@ -15,7 +15,7 @@
 		</div>
 		<div>
 			<a href="{% url 'home' %}">Home</a>
-			{% if user.is_authenticated  %}
+			{% if autenticado == 'autenticado'  %}
 			<a href="{% url 'cerrarSeccion' %}">Logout</a>
 			{% else %}
 			<a href="{% url 'inicioSeccion' %}">Sign Up</a>

@@ -85,37 +85,29 @@ def crearFuentePago(lista):
 
 #Pagina principal
 def home(request):
-    return render(request, 'home.html')
+    try:
+        autenticado = request.session['logout']
+        return render(request, 'home.html',{"autenticado":autenticado})
+    except:
+        return render(request, 'home.html')
 
 
 #Tokens
 def token_basic(request):
 	token = getToken()
+	return redirect(f'CompraBasic/{token}')
 
-	try:
-		response = request.COOKIES['sessionid']
-		return redirect(f'CompraBasic/{token}')
-	except:
-		return redirect('inicioSeccion')
 
 
 def token_normal(request):
 	token = getToken()
+	return redirect(f'CompraNormal/{token}')
 
-	try:
-		response = request.COOKIES['sessionid']
-		return redirect(f'CompraNormal/{token}')
-	except:
-		return redirect('inicioSeccion')
 
 
 def token_premiun(request):
 	token = getToken()
-	try:
-		response = request.COOKIES['sessionid']
-		return redirect(f'CompraPremiun/{token}')
-	except:
-		return redirect('inicioSeccion')
+	return redirect(f'CompraPremiun/{token}')
 		
 
 
@@ -123,7 +115,11 @@ def token_premiun(request):
 #Pagina de compras
 def CompraBasic(request, token):
 	if request.method == "GET":
-		return render(request, 'CompraBasic.html', {"Formulario":FormDatosUser(),"Terminos":terminosYcondiciones})
+		try:
+			autenticado = request.session['logout']
+			return render(request, 'CompraBasic.html', {"Formulario":FormDatosUser(),"Terminos":terminosYcondiciones, 'autenticado':autenticado})
+		except:
+			return render(request, 'CompraBasic.html', {"Formulario":FormDatosUser(),"Terminos":terminosYcondiciones})
 	else:
 		nombre = request.POST["usuario"]
 		email = request.POST["correo"]
@@ -141,7 +137,11 @@ def CompraBasic(request, token):
 
 def CompraNormal(request, token):
 	if request.method == "GET":
-		return render(request, 'CompraNormal.html', {"Formulario":FormDatosUser(),"Terminos":terminosYcondiciones})
+		try:
+			autenticado = request.session['logout']
+			return render(request, 'CompraNormal.html', {"Formulario":FormDatosUser(),"Terminos":terminosYcondiciones, 'autenticado':autenticado})
+		except:
+			return render(request, 'CompraNormal.html', {"Formulario":FormDatosUser(),"Terminos":terminosYcondiciones})
 	else:
 		nombre = request.POST["usuario"]
 		email = request.POST["correo"]
@@ -158,7 +158,11 @@ def CompraNormal(request, token):
 
 def CompraPremiun(request, token):
 	if request.method == "GET":
-		return render(request, 'CompraPremiun.html', {"Formulario":FormDatosUser(),"Terminos":terminosYcondiciones})
+		try:
+			autenticado = request.session['logout']
+			return render(request, 'CompraPremiun.html', {"Formulario":FormDatosUser(),"Terminos":terminosYcondiciones, 'autenticado':autenticado})
+		except:
+			return render(request, 'CompraPremiun.html', {"Formulario":FormDatosUser(),"Terminos":terminosYcondiciones})
 	else:
 		nombre = request.POST["usuario"]
 		email = request.POST["correo"]
@@ -177,7 +181,11 @@ def CompraPremiun(request, token):
 
 def pagoNequi(request, nombre, email,token,plan,metodo,monto,referencia):
 	if request.method == "GET":
-		return render(request, 'pagoNequi.html', {"formulario":FormPagoNequi(), "plan":plan})
+		try:
+			autenticado = request.session['logout']
+			return render(request, 'pagoNequi.html', {"formulario":FormPagoNequi(), "plan":plan, 'autenticado':autenticado})
+		except:
+			return render(request, 'pagoNequi.html', {"formulario":FormPagoNequi(), "plan":plan})
 	else:
 		numero = request.POST["numero"]
 		lista = {
@@ -197,11 +205,19 @@ def pagoNequi(request, nombre, email,token,plan,metodo,monto,referencia):
 		GuardarBaseDatosNequi(token,numero)
 		idTransaccion = postAPI(lista)
 
-		return render(request, "confirmacion.html", {"Plan":plan})
+		try:
+			autenticado = request.session['logout']
+			return render(request, "confirmacion.html", {"Plan":plan, 'autenticado':autenticado})
+		except:
+			return render(request, "confirmacion.html", {"Plan":plan})
 
 def pagoTarjeta(request, nombre, email,token,plan,metodo,monto,referencia):
 	if request.method == "GET":
-		return render(request, 'pagoTarjeta.html', {"formulario":FormPagoTarjeta()})
+		try:
+			autenticado = request.session['logout']
+			return render(request, 'pagoTarjeta.html', {"formulario":FormPagoTarjeta(), "plan":plan, 'autenticado':autenticado})
+		except:
+			return render(request, 'pagoTarjeta.html', {"formulario":FormPagoTarjeta(), "plan":plan})
 	else:
 		numero = request.POST["numero"]
 		cvc = request.POST["cvc"]
@@ -241,7 +257,12 @@ def pagoTarjeta(request, nombre, email,token,plan,metodo,monto,referencia):
 
 		GuardarBaseDatosTarjeta(token, idTransaccion)
 
-		return render(request, "confirmacion.html", {"Plan":plan})
+		try:
+			autenticado = request.session['logout']
+			return render(request, "confirmacion.html", {"Plan":plan, 'autenticado':autenticado})
+		except:
+			return render(request, "confirmacion.html", {"Plan":plan})
+
 
 
 

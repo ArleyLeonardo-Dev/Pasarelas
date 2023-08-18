@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.contrib.auth import login,logout
-from django.http import HttpResponse
+import requests
 
-
+# variables
+APIurl = 'http://127.0.0.1:8000/API/JWT/'
 # Create your views here.
+
 def cerrarSeccion(request):
-    logout(request)
+    del request.session['jwts']
+    del request.session['logout']
     return redirect('home')
 
 def inicioSeccion(request):
@@ -27,7 +29,22 @@ def inicioSeccion(request):
             validacion = 2
             return render(request, 'inicioSeccion.html', {'formulario': AuthenticationForm(), 'validacion':validacion})
         else:
-            request.datos= username
+            id = GetUser.id 
+            username = GetUser.username
+            password = GetUser.password
+            
+            payload = {
+                'id':id,
+                'username':username,
+                'password':password
+            }
+            jwtToken = requests.post(APIurl,json=payload)
+            jwtToken = jwtToken.json()
+            jwtToken = jwtToken['JWT']
+            
+            request.session['jwts'] = jwtToken
+            request.session['logout'] = 'autenticado'
+            request.session.save()
             return redirect('home')
         
     
