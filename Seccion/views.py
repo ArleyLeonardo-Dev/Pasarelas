@@ -46,7 +46,7 @@ def inicioSeccion(request):
             request.session['logout'] = 'autenticado'
             request.session.save()
             return redirect('home')
-        
+
     
 def registroSeccion(request):
     if request.method == 'GET':

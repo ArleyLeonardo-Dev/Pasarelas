@@ -2,5 +2,6 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('JWT/', JwtApiView.as_view() , name = 'token_obtain_pair'),
+    path('Ingresar/', Ingresar.as_view() , name = 'Ingresar'),
+    path('Registrar/', Registrar.as_view(), name = 'Registrar')
 ]

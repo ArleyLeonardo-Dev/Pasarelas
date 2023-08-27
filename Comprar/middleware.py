@@ -22,7 +22,9 @@ class CustomMiddleware:
             response = self.get_response(request)
         elif request.path == '/Seccion/':
             response = self.get_response(request)
-        elif request.path == '/API/JWT/':
+        elif request.path == '/API/Ingresar/':
+            response = self.get_response(request)
+        elif request.path == '/API/Registrar/':
             response = self.get_response(request)
         else:
             if request.session.get('jwts',None) == None:
