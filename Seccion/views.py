@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 import requests
 
 # variables
-APIurl = 'http://127.0.0.1:8000/API/JWT/'
+APIurl = 'http://127.0.0.1:3000/API/JWT/'
 # Create your views here.
 
 def cerrarSeccion(request):
